@@ -7,7 +7,7 @@ int main()
     char fileName[30], ch;
     fstream fps, fpt;
     cout<<"Enter the Name of File: ";
-    gets(fileName);
+    cin>>fileName;
     fps.open(fileName, fstream::out);
     if(!fps)
     {

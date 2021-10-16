@@ -11,24 +11,28 @@ GyroY = xlsread(filename, 'I2:I14952');
 GyroZ= xlsread(filename, 'J2:J14952');
 
 figure()
-plot(time, MagX)
-title('time domain representation of the MagX data')
+plot(time, GyroZ)
+title('time domain representation of the GyroZ data')
 xlabel('time[s]');
-ylabel('MagX');
+ylabel('GyroZ');
 figure()
-histogram(MagX)
-title('Histogram time domain representation of the MagX data')
-Y = fft(MagX);
+histogram(GyroZ)
+title('Histogram time domain representation of the GyroZ data');
+ylabel('GyroZ');
+Y = fft(GyroZ);
 Fs = 1000;
 Ts = 1/Fs;
 f = (0:length(Y)-1)*Fs/length(Y);
 m = abs(Y);
+
 figure()
 histogram(m)
-title('Histogram frequency domain representation of the MagX data')
+title('Histogram frequency domain representation of the GyroZ data')
+ylabel('GyroZ');
+
 figure()
 histogram(m)
-title('frequency domain representation of the MagX data')
+title('frequency domain representation of the GyroZ data')
 xlabel('frequancy[Hz]');
-ylabel('MagX');
+ylabel('GyroZ');
 

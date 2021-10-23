@@ -376,17 +376,16 @@ class ICM20948(object):
     
 if __name__ == '__main__':
   import time
-  print("\nSense HAT Test Program ...\n")
+  num = input()
   MotionVal=[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
   icm20948=ICM20948()
   #while True:
   print("roll		pitch		yaw		AccX	AccY	AccZ	GyrX	GyrY	GyrZ	MagX	MagY	MagZ")
-  for i in range(20):
-    time.sleep(1)
+  for i in range(num):
     icm20948.icm20948_Gyro_Accel_Read()
     icm20948.icm20948MagRead()
     icm20948.icm20948CalAvgValue()
-    time.sleep(0.1)
+   # time.sleep(0.01)
     icm20948.imuAHRSupdate(MotionVal[0] * 0.0175, MotionVal[1] * 0.0175,MotionVal[2] * 0.0175,
                 MotionVal[3],MotionVal[4],MotionVal[5], 
                 MotionVal[6], MotionVal[7], MotionVal[8])
